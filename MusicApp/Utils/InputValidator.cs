@@ -7,7 +7,7 @@ using static System.Console;
 
 namespace MusicApp.Utils
 {
-    internal class InputValidator : IINputSystem
+    public class InputValidator : IINputSystem
     {
         public string FetchStringValue(string prompt)
         {
@@ -36,11 +36,11 @@ namespace MusicApp.Utils
             WriteLine(prompt);
             bool isInt = false;
             int fetchInt = 1;
-            while (!isInt || !(fetchInt <= maximumImputNumber && fetchInt > 0))
+            while (!isInt || !(fetchInt < maximumImputNumber && fetchInt >= 0))
             {
                 string stringToParese = ReadLine();
                 isInt = int.TryParse(stringToParese, out fetchInt);
-                if (!isInt || !(fetchInt <= maximumImputNumber && fetchInt > 0))
+                if (!isInt || !(fetchInt < maximumImputNumber && fetchInt >= 0))
                 {
                     WriteLine("Provided input is not an integer or not it is not in range");
                     WriteLine(prompt);
@@ -48,21 +48,21 @@ namespace MusicApp.Utils
             }
             return fetchInt;
         }
-        public decimal FetchDecimalValue(string prompt)
+        public double FetchDoubleValue(string prompt)
         {
             WriteLine(prompt);
-            bool isDecimal = false;
-            decimal fetchDec = 0;
-            while (!isDecimal)
+            bool isDouble = false;
+            double fetchDouble = 0;
+            while (!isDouble)
             {
                 string stringToParese = ReadLine();
-                isDecimal = decimal.TryParse(stringToParese, out fetchDec);
-                if (!isDecimal)
+                isDouble = double.TryParse(stringToParese, out fetchDouble);
+                if (!isDouble)
                 {
-                    WriteLine("Provided input is not a decimal number");
+                    WriteLine("Provided input is not double");
                 }
             }
-            return fetchDec;
+            return fetchDouble;
         }
     }
 }

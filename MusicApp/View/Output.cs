@@ -19,7 +19,7 @@ namespace MusicApp.View
 
         public void DisplayOptions()
         {
-            menu.PrintMessage("[1] To Add song\n" + "[2] To delete song\n" + "[3] To display all songs\n" + "[4] Sort songs\n" + "[5] Display specific song\n" + "[0] To quit or go to the menu");
+            menu.PrintMessage("[1] To Add song\n" + "[2] To delete song\n" + "[3] To display all songs\n" + "[4] Sort songs\n" + "[5] Display specific song\n" + "[0] To quit");
         }
     }
 }

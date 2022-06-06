@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MusicApp.View.Interfaces
 {
-    internal class IMenu
+    public interface IMenu
     {
+        public void PrintMessage(string message);
     }
 }

@@ -11,6 +11,6 @@ namespace MusicApp.Utils
         public string FetchStringValue(string prompt);
         public int FetchIntValue(string prompt);
         public int FetchIntValue(string prompt, int maximumImputNumber);
-        public decimal FetchDecimalValue(string prompt);
+        public double FetchDoubleValue(string prompt);
     }
 }

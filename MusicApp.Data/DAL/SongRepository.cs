@@ -12,6 +12,11 @@ namespace MusicApp.Data.DAL
     {
         private MusicAppContext _musicAppContext;
 
+        public SongRepository(MusicAppContext musicAppContext)
+        {
+            _musicAppContext = musicAppContext;
+        }
+
         public void Add(Song entity)
         {
             _musicAppContext.Add(entity);
@@ -30,6 +35,15 @@ namespace MusicApp.Data.DAL
         public void Remove(Song etnity)
         {
             _musicAppContext.Remove(etnity);
+        }
+
+        public void Update(Song entity)
+        {
+            _musicAppContext.Songs.Update(entity);
+        }
+        public void Save()
+        {
+            _musicAppContext.SaveChanges();
         }
     }
 }

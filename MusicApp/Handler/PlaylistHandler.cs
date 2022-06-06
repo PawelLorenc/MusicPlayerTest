@@ -63,10 +63,40 @@ namespace MusicApp.Handler
             string author = _inputSystem.FetchStringValue("Author name: ");
             string title = _inputSystem.FetchStringValue("Title: ");
             string album = _inputSystem.FetchStringValue("Album: ");
-            double lenght = _inputSystem.FetchDobuleValue("Length: ");
+            double lenght = _inputSystem.FetchDoubleValue("Length: ");
             Song song = new Song();
-           
+            song.Author = author;
+            song.Title = title;
+            song.AlbumName = album;
+            song.Length = lenght;
+            _songRepo.Add(song);
+            _songRepo.Save();
+            Console.Clear();
         }
-
+        public void DeleteSong()
+        {
+            List<Song> songs = _songRepo.GetAll();
+            _output.DisplayAll(songs);
+            int songIndex = _inputSystem.FetchIntValue("Provide index of the song you want to remove", songs.Count);
+            _songRepo.Remove(songs[songIndex]);
+            _songRepo.Save();        
+        }
+        private void DisplayAllSongs()
+        {
+            List<Song> songs = _songRepo.GetAll();
+            _output.DisplayAll(songs);
+        }
+        private void SortSongs()
+        {
+            List<Song> songs = _songRepo.GetAll();
+            songs.Sort((a, b) => a.Title.CompareTo(b.Title));
+            _output.DisplayAll(songs);
+        }
+        private void DisplaySpecificSong()
+        {
+            List<Song> songs = _songRepo.GetAll();
+            int songIndex = _inputSystem.FetchIntValue("Provide songs index", songs.Count);
+            _menu.PrintMessage(songs[songIndex].Title);
+        }
     }
 }
