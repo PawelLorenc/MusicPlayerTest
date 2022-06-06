@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using MusicApp.Data.Entities;
 
 namespace MusicApp.Data.Context
@@ -18,7 +13,7 @@ namespace MusicApp.Data.Context
                 SongId = Guid.NewGuid(),
                 Author = "Q",
                 AlbumName = "W",
-                Title = "E", 
+                Title = "E",
                 Length = 1.2
             };
             songList.Add(song);

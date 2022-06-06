@@ -2,11 +2,6 @@
 using MusicApp.Data.Entities;
 using MusicApp.Utils;
 using MusicApp.View.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicApp.Handler
 {
@@ -26,12 +21,12 @@ namespace MusicApp.Handler
 
         public void Run()
         {
-            bool exit = false; 
-            while(!exit)
+            bool exit = false;
+            while (!exit)
             {
                 _output.DisplayOptions();
                 int userInput = _inputSystem.FetchIntValue("Provide a number");
-                switch(userInput)
+                switch (userInput)
                 {
                     case 0:
                         exit = true;
@@ -79,7 +74,7 @@ namespace MusicApp.Handler
             _output.DisplayAll(songs);
             int songIndex = _inputSystem.FetchIntValue("Provide index of the song you want to remove", songs.Count);
             _songRepo.Remove(songs[songIndex]);
-            _songRepo.Save();        
+            _songRepo.Save();
         }
         private void DisplayAllSongs()
         {
