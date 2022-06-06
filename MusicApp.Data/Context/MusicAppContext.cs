@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicApp.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,19 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Data.Context
 {
-    internal class MusicAppContext
+    public class MusicAppContext : DbContext
     {
+        public DbSet<Song> Songs { get; set; }
+
+        public MusicAppContext()
+        {
+            Database.EnsureCreated();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(
+                @"Server=(localdb)\mssqllocaldb;Database=OnlineStore;Integrated Security=True");
+        }
     }
 }
