@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicApp.Data.Entities
 {
-    internal class Song
-    {
+    public class Song : SongTemplate
+    { 
     }
 }

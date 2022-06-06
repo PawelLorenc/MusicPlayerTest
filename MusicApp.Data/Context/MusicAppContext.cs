@@ -20,7 +20,12 @@ namespace MusicApp.Data.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=OnlineStore;Integrated Security=True");
+                @"Server=(localdb)\mssqllocaldb;Database=MusicApp;Integrated Security=True");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.SeedDatabase();
         }
     }
 }
