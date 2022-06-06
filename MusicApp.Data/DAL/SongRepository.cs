@@ -22,11 +22,6 @@ namespace MusicApp.Data.DAL
             return _musicAppContext.Songs.ToList();
         }
 
-        public Song GetSingle(Func<Song, bool> condition)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Remove(Song etnity)
         {
             _musicAppContext.Remove(etnity);

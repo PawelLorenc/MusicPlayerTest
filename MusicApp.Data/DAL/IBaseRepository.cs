@@ -5,6 +5,5 @@
         public List<T> GetAll();
         public void Add(T entity);
         public void Remove(T etnity);
-        public T GetSingle(Func<T, bool> condition);
     }
 }
